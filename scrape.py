@@ -1,8 +1,17 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-html = urlopen('http://e-words.jp/p/i-kaa.html')
-bs = BeautifulSoup(html,'html.parser')
-f = open('test.txt','w')
-f.write(str(bs.div))
+# html = urlopen('http://e-words.jp/p/i-kaa.html')
+# bs = BeautifulSoup(html,'html.parser')
+# f = open('test.txt','w')
+# f.write(str(bs.div))
+# f.close()
+
+html = urlopen('好きなサイト')
+bs = BeautifulSoup(html.read(),'html.parser')
+nameList = bs.find_all('span',{'class':'ia'})
+f = open('test.txt','a')
+for name in nameList:
+    f.write(str(name.get_text()))
+
 f.close()
