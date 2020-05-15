@@ -1,0 +1,26 @@
+<div id="header">
+<div id="header-inner">
+<a href="/" style="display:block;float:left;margin-top:15px;width:320px;height:18px;font-weight:normal">
+<div id="e-titleimage" style="float:left" title="IT用語辞典 e-Words"></div>
+<style>#e-titleimage::after{content:"トップページへ";top:10px;left:195px;position:relative;display:block}</style>
+</a>
+<div style="float:right;margin:9px 0;width:505px">
+<div style="float:left;margin-top:14px;font-weight:bold;font-size:17px">IT用語検索 :</div>
+<div style="float:right;width:400px">
+<script>
+(function() {
+var cx = 'partner-pub-1175263777233757:xelkt7-c6j8';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//cse.google.com/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+</div>
+</div>
+</div>
+</div>
