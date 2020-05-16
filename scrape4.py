@@ -34,16 +34,17 @@ def printText(content):
 # IT用語
 url = 'http://e-words.jp/p/s-ranking.html'
 content = scrapeITWords(url)
-printText(content)
+# printText(content)
 
-# print('Title: {}'.format(content.title))
-# print('URL: {}\n'.format(content.url))
-# print(content.body)
+# # print('Title: {}'.format(content.title))
+# # print('URL: {}\n'.format(content.url))
+# # print(content.body)
 
-url = 'https://bitcoin.dmm.com/glossary'
-content = scrapeBitcoinWords(url)
-printText(content)
+# url = 'https://bitcoin.dmm.com/glossary'
+# content = scrapeBitcoinWords(url)
+# printText(content)
 
+print(content.__dict__)
 # print('Title: {}'.format(content.title))
 # print('URL: {}\n'.format(content.url))
 # print(content.body)
