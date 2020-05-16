@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+array = ['title','body','url']
 class Content:
     def __init__(self, url, title, body):
         self.url = url
@@ -12,28 +13,37 @@ def getPage(url):
     return BeautifulSoup(req.text, 'html.parser')
 
 
-def scrapeNYTimes(url):
+def scrapeBitcoinWords(url):
     bs = getPage(url)
-    title = bs.find('h1').text
-    lines = bs.select('div.StoryBodyCompanionColumn div p')
-    body = '\n'.join([line.text for line in lines])
+    title = bs.find('h1')
+    body = bs.select('div')
     return Content(url, title, body)
 
-def scrapeBrookings(url):
+def scrapeITWords(url):
     bs = getPage(url)
-    title = bs.find('h1').text
-    body = bs.find('div', {'class', 'post-body'}).text
+    title = bs.find('h1')
+    body = bs.find('div')
     return Content(url, title, body)
 
 
-url = 'https://www.brookings.edu/blog/future-development/2018/01/26/delivering-inclusive-urban-access-3-uncomfortable-truths/'
-content = scrapeBrookings(url)
-print('Title: {}'.format(content.title))
-print('URL: {}\n'.format(content.url))
-print(content.body)
+def printText(content):
+    f = open('test2.txt','a')
+    f.write(str(content.url))
+    f.write(str(content.title))
+    f.close()
+# IT用語
+url = 'http://e-words.jp/p/s-ranking.html'
+content = scrapeITWords(url)
+printText(content)
 
-url = 'https://www.nytimes.com/2018/01/25/opinion/sunday/silicon-valley-immortality.html'
-content = scrapeNYTimes(url)
-print('Title: {}'.format(content.title))
-print('URL: {}\n'.format(content.url))
-print(content.body)
+# print('Title: {}'.format(content.title))
+# print('URL: {}\n'.format(content.url))
+# print(content.body)
+
+url = 'https://bitcoin.dmm.com/glossary'
+content = scrapeBitcoinWords(url)
+printText(content)
+
+# print('Title: {}'.format(content.title))
+# print('URL: {}\n'.format(content.url))
+# print(content.body)
